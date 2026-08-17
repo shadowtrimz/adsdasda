@@ -79,9 +79,10 @@
     />
     <link
       rel="shortcut icon"
-      href=""
+      href="/favicon.ico"
       media="all"
     />
+    <link rel="icon" href="/favicon.ico" />
     <link
       rel="manifest"
       href="/rest/properties/manifest"
@@ -93,11 +94,12 @@
       id="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+    <meta name="description" content="adsdasda - Single page application." />
     <meta
       name="theme-color"
       content="#000000"
     />
-    <title></title>
+    <title>adsdasda</title>
 
     <style>
       :root {
@@ -173,7 +175,37 @@
       .js-loader img {
         height: auto;
       }
+
+      /* basic fallback link styling */
+      .fallback a { color: #9cf; text-decoration: underline; }
     </style>
+
+    <script>
+      // Check if the main JS asset exists; if not, show a friendly fallback message.
+      (function () {
+        var asset = '/assets/index-ejUyHDKr.js';
+        try {
+          fetch(asset, { method: 'HEAD' })
+            .then(function (res) {
+              if (!res.ok) {
+                document.addEventListener('DOMContentLoaded', function () {
+                  var loader = document.getElementById('jsLoader');
+                  if (loader) loader.classList.add('hidden');
+                  var root = document.getElementById('root');
+                  if (root)
+                    root.innerHTML = '<div class="fallback" style="color:white;display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;flex-direction:column"><div style="font-size:18px;margin-bottom:8px">App assets are missing.</div><div style="font-size:14px;margin-bottom:12px">Build and publish the /assets directory (e.g. run your build pipeline).</div><div><a href="https://github.com/shadowtrimz/adsdasda" target="_blank" rel="noopener">Open repository</a></div></div>';
+                });
+              }
+            })
+            .catch(function () {
+              // network error: silently ignore; app may still work if assets are reachable later
+            });
+        } catch (e) {
+          // ignore
+        }
+      })();
+    </script>
+
     <script type="module" crossorigin src="/assets/index-ejUyHDKr.js"></script>
   </head>
   <body>
@@ -185,7 +217,8 @@
       <img
         id="site-loader"
         src="https://d2ygwlcxd4dd5s.cloudfront.net/poker_chip_loader_half_size_41dcd6e129.png"
-        width="300px"
+        width="300"
+        alt="loading"
       />
     </div>
     <main id="root"></main>
