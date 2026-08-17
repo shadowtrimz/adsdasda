@@ -1,222 +1,74 @@
-
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Placeholder for adding elements to header from container variables-->
-    
-    <base href="/adsdasda/">
+    <!-- Custom start based on bet88 "Super Ace" index provided by user -->
+
+    <!-- IMPORTANT: Replace placeholders below with your real values if you want analytics/feature flags to work -->
     <script type="application/javascript">
       var GLOBAL_LOADER_IMAGE = "https://d2ygwlcxd4dd5s.cloudfront.net/poker_chip_loader_half_size_41dcd6e129.png";
-      var GLOBAL_LOADER_WIDTH = "300px";
+      var GLOBAL_LOADER_WIDTH = "300px"; // kept as string for compatibility with any inline usage
       var GLOBAL_METAMAP_SCRIPT_URL = "https://web-button.getmati.com/button.js";
-      var GLOBAL_CLOUDWATCH_APP_ID = "78bf6d2c-08f3-4c1b-b810-eee79e5f82c6";
-      var GLOBAL_CLOUDWATCH_IDENTITY_POOL_ID = "ap-southeast-1:392b56b6-5e22-458b-8f16-d266095ebce6";
+      var GLOBAL_CLOUDWATCH_APP_ID = "REPLACE_WITH_CLOUDWATCH_APP_ID";
+      var GLOBAL_CLOUDWATCH_IDENTITY_POOL_ID = "REPLACE_WITH_IDENTITY_POOL_ID";
       var GLOBAL_CLOUDWATCH_REGION = "ap-southeast-1";
       var GLOBAL_CLOUDWATCH_SAMPLE_RATE = "0.01";
       var GLOBAL_FLIPT_URL = "https://flags.bet88.ph";
       var GLOBAL_FLIPT_ENVIRONMENT = "bet88";
     </script>
-    <link
-      rel="preload"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons&display=block"
-      as="style"
-      onload="
-        this.onload = null;
-        this.rel = 'stylesheet';
-      "
-      crossorigin
-    />
+
+    <link rel="preload" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=block" as="style" onload="this.onload=null;this.rel='stylesheet'" crossorigin />
     <noscript>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/icon?family=Material+Icons&display=block"
-        crossorigin
-      />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=block" crossorigin />
     </noscript>
-    <link
-      rel="dns-prefetch"
-      href="https://cdn.contentful.com"
-      crossorigin="anonymous"
-      media="all"
-    />
-    <link
-      rel="preconnect"
-      href="https://cdn.contentful.com"
-      crossorigin="anonymous"
-      media="all"
-    />
-    <link
-      rel="dns-prefetch"
-      href="https://storage.googleapis.com"
-      crossorigin="anonymous"
-      media="all"
-    />
-    <link
-      rel="preconnect"
-      href="https://storage.googleapis.com"
-      crossorigin="anonymous"
-      media="all"
-    />
-    <link
-      rel="dns-prefetch"
-      href="https://fonts.googleapis.com"
-      crossorigin="anonymous"
-      media="all"
-    />
-    <link
-      rel="preconnect"
-      href="https://fonts.googleapis.com"
-      crossorigin="anonymous"
-      media="all"
-    />
+
     <meta charset="utf-8" />
-    <meta
-      name="mobile-web-app-capable"
-      content="yes"
-    />
-    <meta
-      name="apple-mobile-web-app-status-bar-style"
-      content="black"
-    />
-    <link
-      rel="shortcut icon"
-      href="favicon.ico"
-      media="all"
-    />
-    <link rel="icon" href="favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="theme-color" content="#000000" />
+    <title>Super Ace (custom)</title>
+
+    <!-- Favicon: prefer repo-relative so GitHub Pages works -->
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <!-- manifest removed to avoid 404 on GitHub Pages; add back if you host the endpoint -->
-    <meta
-      name="viewport"
-      id="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="description" content="adsdasda - Single page application." />
-    <meta
-      name="theme-color"
-      content="#000000"
-    />
-    <title>adsdasda</title>
+    <link rel="shortcut icon" href="favicon.ico" />
 
     <style>
-      :root {
-        --primary-loading-background: #000000;
-      }
-      body {
-        background: var(--primary-loading-background);
-        margin: 0;
-      }
+      :root { --primary-loading-background: #000000; }
+      body { background: var(--primary-loading-background); margin: 0; }
+      body, #root { min-height: 100vh; min-height: 100dvh; }
 
-      body,
-      #root {
-        /* Fallback for browsers that don't support dvh (specifically Firefox) */
-        min-height: 100vh;
-        /* Modern browsers that support dvh */
-        min-height: 100dvh;
-      }
-
-      .lds-facebook {
-        background-color: transparent;
-        display: inline-block;
-        position: relative;
-        width: 80px;
-        height: 80px;
-      }
-      .lds-facebook div {
-        display: inline-block;
-        position: absolute;
-        left: 8px;
-        width: 16px;
-        background: #fff;
-        animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
-      }
-      .lds-facebook div:nth-child(1) {
-        left: 8px;
-        animation-delay: -0.24s;
-      }
-      .lds-facebook div:nth-child(2) {
-        left: 32px;
-        animation-delay: -0.12s;
-      }
-      .lds-facebook div:nth-child(3) {
-        left: 56px;
-        animation-delay: 0;
-      }
-      @keyframes lds-facebook {
-        0% {
-          top: 8px;
-          height: 64px;
-        }
-        50%,
-        100% {
-          top: 24px;
-          height: 32px;
-        }
-      }
-
-      .js-loader {
-        position: fixed;
-        inset: 0;
-        display: grid;
-        place-items: center;
-        background-color: transparent;
-        z-index: 1;
-        pointer-events: none;
-        transition: opacity 0.3s ease-out;
-      }
-
-      .js-loader.hidden {
-        opacity: 0;
-      }
-
-      .js-loader img {
-        height: auto;
-      }
+      .js-loader { position: fixed; inset: 0; display: grid; place-items: center; background-color: transparent; z-index: 1; pointer-events: none; transition: opacity 0.3s ease-out; }
+      .js-loader.hidden { opacity: 0; }
+      .js-loader img { height: auto; }
 
       /* basic fallback link styling */
       .fallback a { color: #9cf; text-decoration: underline; }
     </style>
 
     <script>
-      // Check if the main JS asset exists; if not, show a friendly fallback message.
-      (function () {
+      // Resolve asset path relative to current document so GitHub Pages and local servers both work
+      (function(){
         var asset = 'assets/index-ejUyHDKr.js';
-        try {
-          fetch(asset, { method: 'HEAD' })
-            .then(function (res) {
-              if (!res.ok) {
-                document.addEventListener('DOMContentLoaded', function () {
-                  var loader = document.getElementById('jsLoader');
-                  if (loader) loader.classList.add('hidden');
-                  var root = document.getElementById('root');
-                  if (root)
-                    root.innerHTML = '<div class="fallback" style="color:white;display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;flex-direction:column"><div style="font-size:18px;margin-bottom:8px">App assets are missing.</div><div style="font-size:14px;margin-bottom:12px">Build and publish the /assets directory (e.g. run your build pipeline).</div><div><a href="https://github.com/shadowtrimz/adsdasda" target="_blank" rel="noopener">Open repository</a></div></div>';
-                });
-              }
-            })
-            .catch(function () {
-              // network error: silently ignore; app may still work if assets are reachable later
-            });
-        } catch (e) {
-          // ignore
+        // If the asset is missing, show a helpful message instead of a stuck loader
+        function showMissing() {
+          document.addEventListener('DOMContentLoaded', function(){
+            var loader = document.getElementById('jsLoader'); if(loader) loader.classList.add('hidden');
+            var root = document.getElementById('root');
+            if(root) root.innerHTML = '<div class="fallback" style="color:white;display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;flex-direction:column"><div style="font-size:18px;margin-bottom:8px">App assets are missing.</div><div style="font-size:14px;margin-bottom:12px">Build and publish the /assets directory or place your bundle at assets/index-ejUyHDKr.js.</div><div><a href="https://github.com/shadowtrimz/adsdasda" target="_blank" rel="noopener">Open repository</a></div></div>';
+          });
         }
+
+        try {
+          fetch(asset, { method: 'HEAD' }).then(function(res){ if(!res.ok) showMissing(); }).catch(function(){ /* network error: ignore; app may still work */ });
+        } catch(e){ /* ignore */ }
       })();
     </script>
 
+    <!-- Load the bundle (should be built and placed under assets/) -->
     <script type="module" crossorigin src="assets/index-ejUyHDKr.js"></script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div
-      id="jsLoader"
-      class="js-loader"
-    >
-      <img
-        id="site-loader"
-        src="https://d2ygwlcxd4dd5s.cloudfront.net/poker_chip_loader_half_size_41dcd6e129.png"
-        width="300"
-        alt="loading"
-      />
+    <div id="jsLoader" class="js-loader">
+      <img id="site-loader" src="https://d2ygwlcxd4dd5s.cloudfront.net/poker_chip_loader_half_size_41dcd6e129.png" width="300" alt="loading" />
     </div>
     <main id="root"></main>
   </body>

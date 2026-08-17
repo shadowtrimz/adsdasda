@@ -1,17 +1,8 @@
-// Placeholder bundle for development/demo purposes.
-// This file simulates the real built JS so the SPA shell displays something.
-
+// Minimal placeholder bundle so the shell renders while you add a real build.
 document.addEventListener('DOMContentLoaded', function () {
   var loader = document.getElementById('jsLoader');
   var root = document.getElementById('root');
-
-  // Hide the loader if present
-  if (loader) {
-    loader.classList.add('hidden');
-    loader.style.pointerEvents = 'none';
-  }
-
-  // Mount a minimal placeholder app
+  if (loader) loader.classList.add('hidden');
   if (root) {
     var app = document.createElement('div');
     app.style.color = '#fff';
@@ -21,10 +12,8 @@ document.addEventListener('DOMContentLoaded', function () {
     app.style.justifyContent = 'center';
     app.style.height = '100vh';
     app.style.fontFamily = 'system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial';
-    app.innerHTML = '<h1 style="margin:0 0 8px 0">Placeholder App</h1><p style="margin:0 0 12px 0;opacity:0.9">This is a placeholder bundle. Replace /assets/index-ejUyHDKr.js with your real build output.</p><a href="https://github.com/shadowtrimz/adsdasda" target="_blank" rel="noopener" style="color:#9cf">Open repository</a>';
+    app.innerHTML = '<h1 style="margin:0 0 8px 0">Super Ace - Placeholder</h1><p style="margin:0 0 12px 0;opacity:0.9">This is a placeholder bundle. Replace assets/index-ejUyHDKr.js with your real build output.</p><a href="https://github.com/shadowtrimz/adsdasda" target="_blank" rel="noopener" style="color:#9cf">Open repository</a>';
     root.appendChild(app);
   }
 });
-
-// Keep an export so this can be imported as an ES module if desired
 export default {};
